@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>TIC TAC TOE</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="container center">
+            <h1>TIC TAC TOE</h1>
+            <div class="col s6">
+                <a href="newGame" id="newGameButton" class="waves-effect waves-light btn-large">
+                    <i class="material-icons right">add_box</i>
+                    Nuevo Juego
+                </a>
+            </div>
+            <div class="col s6">
+                <a class="waves-effect waves-light btn-large btn modal-trigger" data-target="modal1" href="#modal1">
+                    <i class="material-icons right">adjust</i>
+                    Unirse a Juego
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <h1>ID ROOM</h1>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">adjust</i>
+                    <input id="room1" type="text" class="validate" />
+                    <label for="icon_prefix">ID</label>
+                </div>
+                <button id="btnSubmit" class="btn waves-effect waves-light">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        (function ($) {
+            $(function () {
+                //initialize all modals           
+                $('.modal').modal();
+
+                //or by click on trigger
+                $('.trigger-modal').modal();
+                $('document').ready(function () {
+
+
+                    $('#btnSubmit').click(() => {
+                        var room = $("#room1").val();
+                        window.location.href = "http://localhost:3000/newGame?room=" + room;
+                        //console.log("http://localhost:3000/newGame?room=" + room);
+                    })
+                })
+            }); // end of document ready
+        })(jQuery); // end of jQuery name space
+    </script>
+</body>
+
+</html>
